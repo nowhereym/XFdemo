@@ -41,4 +41,11 @@
  ![tp6h](result/tp6hdif-1.png)![tp6h](result/tp6hdif-2.png)![tp6h](result/tp6hdif-3.png)
   - **ssr6h**
  ![ssr6h](result/ssr6hdif-1.png)![ssr6h](result/ssr6hdif-2.png)![ssr6h](result/ssr6hdif-3.png)
+ ### ERA5对比图(下载队列问题只下载了三个变量，并对齐到新疆区域)
+ - **t2m**
+ ![t2m](result/era5dif-t2m.png)
+  - **u10**
+ ![u10](result/era5dif-u10.png)
+  - **v10**
+ ![v10](result/era5dif-v10.png)
  
