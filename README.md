@@ -19,7 +19,7 @@
 ## 由于时间及内存原因，时间步处理其中一步，部分任务仅选择新疆地区，ERA5数据因下载队列问题只有温度、uv风。
 
 ##  可视化结果图：
- - 三种方法
+  ### 三种插值结果
   - **t2m**
  ![t2m](result/t2m.png)
   - **u10**
@@ -30,4 +30,15 @@
  ![tp6h](result/tp6h.png)
   - **ssr6h**
  ![ssr6h](result/ssr6h.png)
+ ### 误差分布
+  - **t2m**
+ ![t2m](result/t2mdif-1.png)![t2m](result/t2mdif-2.png)![t2m](result/t2mdif-3.png)
+  - **u10**
+ ![u10](result/u10dif-1.png)![u10](result/u10dif-2.png)![u10](result/u10dif-3.png)
+  - **v10**
+ ![v10](result/v10dif-1.png)![v10](result/v10dif-2.png)![v10](result/v10dif-3.png)
+  - **tp6h**
+ ![tp6h](result/tp6hdif-1.png)![tp6h](result/tp6hdif-2.png)![tp6h](result/tp6hdif-3.png)
+  - **ssr6h**
+ ![ssr6h](result/ssr6hdif-1.png)![ssr6h](result/ssr6hdif-2.png)![ssr6h](result/ssr6hdif-3.png)
  
