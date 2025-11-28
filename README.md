@@ -23,6 +23,12 @@
   调用函数：
   ```python
   def random_point_validation(data_9km, data_1km, lon_9km, lat_9km, lon_1km, lat_1km, n_samples=3)
+  - **ERA5对比**:
+  调用函数：
+  ```python
+  rmse, mae, correlation = calculate_basic_metrics(era5[t,:60,:92],downsampled_25km)
+  # 打印结果
+  print_basic_metrics(rmse, mae, correlation,var)
 
     
 ##  可视化结果图：
