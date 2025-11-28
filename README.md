@@ -19,8 +19,13 @@
   ~~不同区域分布分析~~ 
   ~~空间分布模式对比~~ 
 ---
+---
 
 - **验证策略**：
+  主要函数（已完成所有插值算法）：
+  ```python
+  def analyse_extract_meteorological_data(extracted_data,lat,lon,var,era5,elon,elat):
+  ```
   - **随机点验证**：
   调用函数：
   ```python
