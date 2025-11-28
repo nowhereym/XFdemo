@@ -11,9 +11,9 @@
   - 临近插值【自选算法】
   - 克里金插值（内存原因并未使用）
 - **验证策略**：
-  - **自验证**：随机点交叉验证 + 区域误差分析（新疆、四川、山西、江苏）
+  - **自验证**：随机点验证 + 区域误差分析（新疆、四川、山西、江苏）
   - **外部验证**：与 ERA5/ERA5-Land 再分析数据对比
-- **可视化**：插值结果、误差分布、ERA5 对比图
+- **可视化**：插值结果、误差分布、ERA5对比图
 
 ---
 
@@ -23,12 +23,14 @@
   调用函数：
   ```python
   def random_point_validation(data_9km, data_1km, lon_9km, lat_9km, lon_1km, lat_1km, n_samples=3)
+  ```
   - **ERA5对比**:
   调用函数：
   ```python
   rmse, mae, correlation = calculate_basic_metrics(era5[t,:60,:92],downsampled_25km)
   # 打印结果
   print_basic_metrics(rmse, mae, correlation,var)
+  ```
 
     
 ##  可视化结果图：
