@@ -20,7 +20,9 @@
 
 - **验证策略**：
   - **随机点验证**：
-  调用函数：```def random_point_validation(data_9km, data_1km, lon_9km, lat_9km, lon_1km, lat_1km, n_samples=3)```
+  调用函数：
+  ```python
+  def random_point_validation(data_9km, data_1km, lon_9km, lat_9km, lon_1km, lat_1km, n_samples=3)
 
     
 ##  可视化结果图：
