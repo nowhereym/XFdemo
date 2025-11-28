@@ -20,5 +20,5 @@
 ##  可视化结果图：
  *三种方法*
  **t2m**
- ![t2m]('result/t2m.png')
+ ![t2m]('XFdemo/result/t2m.png')
  
