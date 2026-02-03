@@ -84,4 +84,40 @@
  ![u10](result/era5dif-u10.png)
   - **v10**
  ![v10](result/era5dif-v10.png)
- 
+
+
+
+ graph TD
+    %% 定义样式
+    classDef input fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef model fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
+    classDef fusion fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef process fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef output fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
+
+    %% 节点定义
+    Input[输入: 过去12个月多变量场<br>维度: [12, 12, 40, 236]]:::input
+    
+    %% 编码阶段：双流
+    Input --> Split{变量分流}
+    
+    Split -->|表层动力流| EncA[表层流编码器<br>处理: SSTA, 风应力, 热通量等<br>架构: 3D CNN + 特征金字塔]:::model
+    Split -->|次表层热力流| EncB[次表层流编码器<br>处理: 7层温跃层温度异常<br>架构: 3D CNN + 特征金字塔]:::model
+    
+    EncA --> FeatA[表层特征 F_surface]
+    EncB --> FeatB[次表层特征 F_subsurface]
+    
+    %% 融合阶段：耦合与注意力
+    FeatA & FeatB --> Couple[动态门控耦合模块<br>计算权重 alpha<br>F_fused = alpha*F_surface + (1-alpha)*F_subsurface]:::fusion
+    Couple --> Compressed[压缩后的隐空间特征]:::fusion
+    
+    Compressed --> Attn1[第一阶段: 小窗口注意力<br>捕捉局部上下文关联]:::fusion
+    Attn1 --> Attn2[第二阶段: 大窗口注意力<br>建模跨洋盆遥相关]:::fusion
+    Attn2 --> GlobalZ[全局隐状态 Z]
+    
+    %% 解码阶段：重构
+    GlobalZ --> TimeExt[时间维度扩展<br>3D CNN 上采样至 18 个月]:::process
+    TimeExt --> SpaceUp[空间分辨率恢复<br>反卷积 上采样]:::process
+    SpaceUp --> PredHead[预测头<br>1x1 卷积层]:::process
+    PredHead --> Output[输出: 未来18个月多变量预测场]:::output
+
